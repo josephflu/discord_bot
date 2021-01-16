@@ -3,5 +3,5 @@ The coolest discord bot ever
 
 Abilities:
 
-- restart mikecraft server
+- restart minecraft server
 - respond to simple chat commands

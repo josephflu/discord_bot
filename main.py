@@ -25,12 +25,14 @@ async def reverse(context):
     await context.send(rev)
 
 
-# @bot.event
-# async def on_message(message):
-#     if bot.user!=message.author:
-#         if 'cat' in message.content:
-#             print('cat')
-#             await message.channel.send('cat')
+@bot.event
+async def on_message(message):
+    if bot.user != message.author:
+        if 'cat' in message.content:
+            print('cat')
+            await message.channel.send('cat')
+
+    await bot.process_commands(message)
 
 # @bot.event
 # async def on_message(message):

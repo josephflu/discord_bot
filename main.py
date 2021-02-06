@@ -1,6 +1,7 @@
 import os
 
 from discord.ext import commands
+from pyjokes import get_joke
 
 # all commands will be of the form "!command-name" (or whatever prefix you choose)
 bot = commands.Bot(command_prefix='!')
@@ -15,6 +16,12 @@ async def my_cool_command(context):
     print(guild)
     # ...and in the chat
     await context.send(guild)
+
+
+@bot.command(name='joke')
+async def joke(context):
+    joke = get_joke()
+    await context.send(joke)
 
 
 @bot.command()
@@ -43,6 +50,7 @@ async def on_message(message):
 
 if __name__ == "__main__":
     token = os.getenv('DISCORD_TOKEN')
+    print(token)
     print("running MYDBOT")
     bot.run(token)
 

@@ -1,11 +1,12 @@
 import os
 
+from cog import Task
 from discord.ext import commands
 from pyjokes import get_joke
 
 # all commands will be of the form "!command-name" (or whatever prefix you choose)
 bot = commands.Bot(command_prefix='!')
-
+bot.add_cog(Task(bot))
 
 # name is the name you type on the server when you want to invoke the commmand
 @bot.command(name='my-cool-command')

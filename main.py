@@ -65,14 +65,17 @@ async def on_message(message):
 async def repeat():
     print("h  e  l  o")
 
-    guild = bot.guilds[0]
-    members = guild.members
-    for vc in guild.voice_channels:
-        if vc.name.startswith("AFK"):
-            afk_channel = vc
-            break
-    for member in members:
-        await member.move_to(afk_channel)
+    try:
+        guild = bot.guilds[0]
+        members = guild.members
+        for vc in guild.voice_channels:
+            if vc.name.startswith("AFK"):
+                afk_channel = vc
+                break
+        for member in members:
+            await member.move_to(afk_channel)
+    except IndexError:
+        print("The guilds list is empty now!")
 
 # @bot.event
 # async def on_message(message):
